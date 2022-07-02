@@ -63,7 +63,7 @@ module.exports = {
       .setColor(colour.embed)
       .addField("BOT INFO", `**❕ Status** :  [\`🟢\`] Online\n**🏓 Ping** : ${client.ws.ping}ms\n**⏱️ Uptime** :\n\`\`\`\n${days}Days, ${hours}Hours, ${minutes}Minutes, ${seconds}Seconds\n\`\`\``)
       .addField(`DataBase INFO`, `**🪧 Name :** MongoDB\n**❕ Status :** ${switchTo(connection.readyState)}`)
-      .addField("HOST & LIBRARY INFO", '**🪧 Name :** [repl.it](https://repl.it)\n📚 **Library :** discord.js | V•13.8.0\n**🌐 GitHub :** Will be added soon.')
+      .addField("HOST & LIBRARY INFO", '**🪧 Name :** [repl.it](https://repl.it)\n📚 **Library :** discord.js | V•13.8.0\n**🌐 GitHub : Repository[**\n  **🪧 Name :** Galactic.Bot\n**🔗 Link :** https://github.com/THE-ASSASSIN0128/Galactic.Bot\n].')
 
     const row = new MessageActionRow()
 			.addComponents(
