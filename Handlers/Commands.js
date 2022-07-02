@@ -4,12 +4,12 @@ const {
 } = require("process"); 
 const {
   Perms
-} = require("../Validation/Permissions"); 
+} = require(`${cwd()}/Validation/Permissions.js`); 
 const {
   bot, 
   owner, 
   guilds
-} = require("../data.json");  
+} = require(`${cwd()}/Structures/data.json`);  
   
   
   
@@ -20,13 +20,13 @@ const {
    Table.setHeading("Name", "Status"); 
     
    ( await PG(`${cwd()}/Commands/Interaction/*/*.js`)).map( async (file) => { 
-     const command = require(file); 
+     const command = require(file); 
   
      if (!command.name) 
      return Table.addRow(file.split("/")[7], "❌FAILED", "Missing a name"); 
   
      if (!command.description) 
-     return Table.addRow(command.name, "❌FAILED", "Missing a description"); 
+     return Table.addRow(interaction.name, "❌FAILED", "Missing a description"); 
   
      if (command.permissions) { 
   
@@ -37,7 +37,7 @@ const {
        } 
      } 
   
-     client.commands.set(command.name, command); 
+     client.interactions.set(command.name, command); 
      ArrayofCommands.push(command); 
   
      const L = file.split("/"); 

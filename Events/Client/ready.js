@@ -1,8 +1,19 @@
+const {
+  cwd,
+  env
+} = require("process")
 const mongoose = require("mongoose");
-const DataBase = process.env["DataBase"];
+const DataBase = env["DataBase"];
 const ascii = require("ascii-table");
-const { guilds, channels, colour } = require("../../data.json");
-const { MessageEmbed, WebhookClient } = require("discord.js");
+const {
+  guilds,
+  channels,
+  colour
+} = require(`${cwd()}/Structures/data.json`);
+const {
+  MessageEmbed,
+  WebhookClient
+} = require("discord.js");
 
 
 module.exports = {

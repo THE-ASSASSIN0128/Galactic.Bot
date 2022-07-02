@@ -1,6 +1,6 @@
-entrypoint = "index.js"
+entrypoint = "Structures/index.js"
 
-hidden = [".config"]
+hidden = [".config",".replit.nix",".replit"]
 
 [interpreter]
 command = [

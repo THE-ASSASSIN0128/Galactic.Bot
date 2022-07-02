@@ -1,10 +1,13 @@
 const {
+  cwd
+} = require("process");
+const {
   MessageEmbed
 } = require("discord.js");
 const {
   image,
   colour
-} = require("../../data.json");
+} = require(`${cwd()}/Structures/data.json`);
 
 
 
@@ -16,7 +19,7 @@ module.exports = {
       try {
       
       
-        const command = client.commands.get(interaction.commandName);
+        const command = client.interactions.get(interaction.commandName);
       
       
         if (!command) {

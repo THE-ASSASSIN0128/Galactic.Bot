@@ -17,7 +17,7 @@ const {
   colour,
   owner,
   image
-} = require(`${cwd()}/data.json`);
+} = require(`${cwd()}/Structures/data.json`);
 
 
 

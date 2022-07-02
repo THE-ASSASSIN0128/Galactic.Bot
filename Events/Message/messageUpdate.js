@@ -3,7 +3,12 @@ const {
   Message,
   WebhookClient
 } = require("discord.js");
-const { colour } = require("../../data.json");
+const {
+  cwd
+} = require(`process`);
+const {
+  colour
+} = require(`${cwd()}/Structures/data.json`);
 
 
 module.exports = {

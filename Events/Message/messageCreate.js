@@ -1,4 +1,9 @@
-const { bot } = require("../../data.json");
+const {
+  cwd
+} = require("process");
+const {
+  bot
+} = require(`${cwd()}/Structures/data.json`);
 
 
 

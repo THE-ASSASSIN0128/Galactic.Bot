@@ -1,4 +1,7 @@
 const {
+  cwd
+} = require("process");
+const {
   MessageEmbed,
   MessageAttachment
 } = require("discord.js");
@@ -6,7 +9,7 @@ const {
   channels,
   colour,
   image
-} = require(`../../data.json`);
+} = require(`${cwd()}/Structures/data.json`);
 
 
 
