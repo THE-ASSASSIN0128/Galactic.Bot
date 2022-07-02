@@ -1,7 +1,7 @@
-## A Discord Bot made for a Private Server. 
+A Discord Bot made for a Private Server. 
   
  ```markdown 
- This bot was only for made my private uses. 
+ This bot was only made for private uses. 
   
  It was made with discord.js (v13+) Library. 
  ``` 
