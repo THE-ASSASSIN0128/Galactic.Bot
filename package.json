@@ -1,0 +1,27 @@
+{
+  "name": "galacticbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/THE-ASSASSIN0128/Galactic.Bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/THE-ASSASSIN0128/Galactic.Bot/issues"
+  },
+  "homepage": "https://github.com/THE-ASSASSIN0128/Galactic.Bot#readme",
+  "dependencies": {
+    "@discordjs/rest": "^0.5.0",
+    "ascii-table": "^0.0.9",
+    "discord.js": "^13.8.1",
+    "express": "^4.18.1",
+    "glob": "^8.0.3"
+  }
+}
