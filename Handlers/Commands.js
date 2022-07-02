@@ -1,23 +1,15 @@
 const { 
    cwd, 
    env 
- } = require("process"); 
- const {  
-   Perms  
- } = require("../Validation/Permissions"); 
- const {  
-   bot, 
-   owner, 
-   guilds 
- } = require("../Structures/data.json"); 
- const { 
-   Routes 
- } = require("discord.js"); 
- const { 
-   REST 
- } = require("@discordjs/rest"); 
- const token = env.Token 
-  
+} = require("process"); 
+const {
+  Perms
+} = require("../Validation/Permissions"); 
+const {
+  bot, 
+  owner, 
+  guilds
+} = require("../data.json");  
   
   
   
