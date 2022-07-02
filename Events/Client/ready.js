@@ -24,8 +24,15 @@ module.exports = {
     let channel = await guild.channels.fetch(channels.status);
 
     const Status = new MessageEmbed()
-      .setTitle(`${client.user.tag}`)
-      .setDescription(`**The __Bot__ is now Online.**`)
+      .setAuthor({
+        name: `${client.user.tag}`,
+        iconURL: `${client.user.avatarURL({
+          dynamic: true,
+          size: 4096
+        })}`
+      })
+      .setTitle("Bot is Online")
+      .setDescription(`To make some upgrades or to fix some bugs the bot was offline. Now the bot is online again. You can enjoy using the bot.`)
       .setThumbnail(`${client.user.avatarURL({
         dynamic : true,
         size : 4096
@@ -37,9 +44,9 @@ module.exports = {
       url: "https://discord.com/api/webhooks/979697971975323658/0NrkZWCPKBrLaj7iU6SEYxOHAEWCkpVj1QVbQS8cCMnyx-YGHrrc7n05E-NSzxQdmywe"
     });
 
-    /*channel.send({
+    channel.send({
       embeds: [Status]
-    });*/
+    });
     
 		console.log(`Ready! Logged in as ${client.user.tag}`);
     client.user.setPresence({
