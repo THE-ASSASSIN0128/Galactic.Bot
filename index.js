@@ -47,7 +47,7 @@ const {
   
  //Handlers 
  ["Events","Commands"].forEach(handler => { 
-   require(`../Handlers/${handler}`)(client, PG, ascii); 
+   require(`./Handlers/${handler}`)(client, PG, ascii); 
  }) 
   
  client.login(token)
