@@ -61,9 +61,14 @@ module.exports = {
       .setTitle("GENERAL INFO")
       .setDescription(`**🪧 Name :** ${client.user.username} | ${client.user}\n**🏷️ Tag :** ${client.user.tag}\n\**⚙️ Version :** ${version}\n**👑 Owner :** ${king.user.tag} | ${king}\n**🌐 Website :** Coming soon.\n\n**\`\`\`\nStay tuned for more updates.\n\`\`\`**`)
       .setColor(colour.embed)
+      .setThumbnail(`${client.user.avatarURL({
+        dynamic: true,
+        size: 4096
+      })}`)
       .addField("BOT INFO", `**❕ Status** :  [\`🟢\`] Online\n**🏓 Ping** : ${client.ws.ping}ms\n**⏱️ Uptime** :\n\`\`\`\n${days}Days, ${hours}Hours, ${minutes}Minutes, ${seconds}Seconds\n\`\`\``)
       .addField(`DataBase INFO`, `**🪧 Name :** MongoDB\n**❕ Status :** ${switchTo(connection.readyState)}`)
-      .addField("HOST & LIBRARY INFO", '**🪧 Name :** [repl.it](https://repl.it)\n📚 **Library :** discord.js | V•13.8.0\n**🌐 GitHub : Repository[**\n  **🪧 Name :** Galactic.Bot\n**🔗 Link :** https://github.com/THE-ASSASSIN0128/Galactic.Bot\n].')
+      .addField("HOST & LIBRARY INFO", '**🪧 Name :** [repl.it](https://repl.it)\n📚 **Library :** discord.js | V•13.8.0')
+      .addField("**GitHub Repository**",`**🪧 Name :** Galactic.Bot\n**🔗 Link :** [THE-ASSASSIN0128/Galactic.Bot](https://github.com/THE-ASSASSIN0128/Galactic.Bot)\n`)
 
     const row = new MessageActionRow()
 			.addComponents(
