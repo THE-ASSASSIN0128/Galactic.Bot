@@ -4,10 +4,9 @@
     "test": "883543290035716166"
   },
   "bot": {
-    "name": "Mr. Moderator",
-    "prefix": "m!",
-    "id": "883663080633040936",
-    "prefix": "!"
+    "name": "Galactic.Bot",
+    "id": "899898982325694515",
+    "prefix": "G!"
   },
   "owner": {
     "name": "THE ASSASSIN",
