@@ -44,6 +44,7 @@ const client = new Client({
 client.commands = new Collection();
 client.cooldown = new Collection();
 client.interactions = new Collection();
+client.aliases = new Collection();
 
   
   
