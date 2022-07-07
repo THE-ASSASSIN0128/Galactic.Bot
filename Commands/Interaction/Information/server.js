@@ -31,7 +31,7 @@ module.exports = {
       .addField(`👥 Members [${Guild.memberCount}]`, "More information will be added in next Update.")
       .addField(`💬 Channels [${Channels.size}]`, "More information will be added in the next update.")
       .addField(`🔐 Roles [${Roles.size}]`, "Use \`/roles\` to get a list of roles")
-      .setColor(colour.embed)
+      .setColor(colour.bot)
       .setThumbnail(`${Guild.iconURL({
         dynamic: true,
         size: 4096

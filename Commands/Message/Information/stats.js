@@ -31,7 +31,7 @@ module.exports = {
   name: "stats",
   category: "Information",
   description: "Replies with the bots currnet status.",
-  async execute(interaction, client) {
+  async execute(client, message, args) {
     
     let uptime = Math.floor (client.uptime / 1000)
 
@@ -39,7 +39,7 @@ module.exports = {
     let hours = Math.floor(uptime / 3600) % 24 
     let minutes = Math.floor(uptime / 60) % 60 
       let seconds = Math.floor(uptime) % 60 
-         let webLatency = new Date() - interaction.createdAt 
+         let webLatency = new Date() - message.createdAt 
            
     let apiLatency = client.ws.ping
       let totalLatency = webLatency + apiLatency
@@ -48,7 +48,7 @@ module.exports = {
       Yellow: '🟡',
       Red: '🔴'
     };
-    let king = interaction.guild.members.cache.get(owner.id)
+    let king = message.guild.members.cache.get(owner.id)
 
 /*
            .addField(`📡 Websocket Latency`, `\`${webLatency <= 200 ? emLatency.Green : webLatency <= 400 ? emLatency.Yellow : emLatency.Red}\` \`${webLatency}\`ms`)
@@ -89,7 +89,7 @@ module.exports = {
 					]),
 			);
     
-    await interaction.reply({
+    await message.channel.send({
       embeds: [ Status ]
     });
   }

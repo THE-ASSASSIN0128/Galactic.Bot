@@ -37,7 +37,7 @@ module.exports = {
         dynamic : true,
         size : 4096
       })}`)
-      .setColor(colour.embed)
+      .setColor(colour.bot)
       .setTimestamp()
 
     const Bot = new WebhookClient({

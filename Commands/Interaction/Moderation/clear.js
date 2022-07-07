@@ -33,7 +33,7 @@ module.exports = {
     
     let amount = interaction.options.getInteger("amount");
     let User = interaction.options.getUser("user");
-    let Response = new MessageEmbed().setColor(colour.embed)
+    let Response = new MessageEmbed().setColor(colour.bot)
 
     const Messages = await interaction.channel.messages.fetch();
 
@@ -55,14 +55,17 @@ module.exports = {
         interaction.deleteReply();
       }) 
     } else {
-      interaction.channel.bulkDelete(amount, true).then(async (messages) => {
-        Response.setDescription(`Deleted **__${messages.size}__** Messages.`)
-        interaction.reply({
-          embeds: [Response]
+      await interaction.channel.bulkDelete(amount, true).then(
+        async (messages) => {
+          Response
+            .setDescription(`Deleted **__${messages.size}__** Messages.`)
+        
+          await interaction.reply({
+            embeds: [Response]
+          });
+          await wait (5000);
+          interaction.deleteReply();
         });
-        await wait (5000);
-        interaction.deleteReply();
-      });
     };
   },
 };

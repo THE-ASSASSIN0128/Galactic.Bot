@@ -26,13 +26,13 @@ const {
      cooldown: 15,
      category: 'Info',
    description: '🏓 Show the bot\'s Latency to the Discord API.',
-     async execute(interaction, client) {
+     execute: async (client, message, args) => {
        let days = Math.floor(client.uptime / 86400000)
        let hours = Math.floor(client.uptime / 3600000) % 24
        let minutes = Math.floor(client.uptime / 60000) % 60
          let seconds = Math.floor(client.uptime / 1000) % 60
        
-       let webLatency = new Date() - interaction.createdAt 
+       let webLatency = new Date() - message.createdAt 
        let apiLatency = client.ws.ping
        
        let emLatency = {
@@ -57,7 +57,7 @@ const {
           })
          .setTimestamp()
        
-       interaction.reply({
+       message.channel.send({
          embeds: [latancy]
        });
   },

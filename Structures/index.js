@@ -50,7 +50,7 @@ client.aliases = new Collection();
   
  
 //Handlers 
-["Events","Commands"].forEach(handler => { 
+["Events","Commands", "Message"].forEach(handler => { 
    require(`${cwd()}/Handlers/${handler}`)(client, PG, ascii); 
  }) 
   

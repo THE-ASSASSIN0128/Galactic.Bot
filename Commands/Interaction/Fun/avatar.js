@@ -27,7 +27,7 @@ module.exports = {
 
     const info = new MessageEmbed()
       .setDescription("**Avatar. For URL click on the image.**")
-      .setColor(colour.embed)
+      .setColor(colour.bot)
       .setTimestamp()
 
     const User = await interaction.options.getUser("user") || interaction.user;

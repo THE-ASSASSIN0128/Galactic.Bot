@@ -68,7 +68,7 @@ module.exports = {
       })
       .setTitle("SUGGESTION")
       .setDescription(`**${interaction.user} has suggested a ${type} for the Bot.\n\nName : ${name}\n\nFunctionality : ${funcs}\n\nReact with ✅ if you like it \nReact with ❌ if you dislike it.**`)
-      .setColor(colour.embed)
+      .setColor(colour.bot)
       .setThumbnail(`${interaction.user.avatarURL({
         dynamic: true,
         size : 4096
