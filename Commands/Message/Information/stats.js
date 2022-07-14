@@ -31,7 +31,7 @@ module.exports = {
   name: "stats",
   category: "Information",
   description: "Replies with the bots currnet status.",
-  async execute(client, message, args) {
+  run: async(client, message, args) => {
     
     let uptime = Math.floor (client.uptime / 1000)
 

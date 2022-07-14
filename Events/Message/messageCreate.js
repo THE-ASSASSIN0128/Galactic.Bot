@@ -91,7 +91,7 @@ module.exports = {
 
     try {
       
-      command.execute(client, message, args);
+      command.run(client, message, args);
       
     } catch (error) {
       

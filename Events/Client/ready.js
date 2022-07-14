@@ -40,13 +40,9 @@ module.exports = {
       .setColor(colour.bot)
       .setTimestamp()
 
-    const Bot = new WebhookClient({
-      url: "https://discord.com/api/webhooks/979697971975323658/0NrkZWCPKBrLaj7iU6SEYxOHAEWCkpVj1QVbQS8cCMnyx-YGHrrc7n05E-NSzxQdmywe"
-    });
-
-    channel.send({
+    /*channel.send({
       embeds: [Status]
-    });
+    });*/
     
 		console.log(`Ready! Logged in as ${client.user.tag}`);
     client.user.setPresence({

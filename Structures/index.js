@@ -18,6 +18,15 @@ const ascii = require("ascii-table");
 const {
   cwd
 } = require("process");
+const {
+  DisTube
+} = require("distube");
+const {
+  SpotifyPlugin
+} = require("@distube/spotify");
+const {
+  YtDlpPlugin
+} = require("@distube/yt-dlp");
   
   
   
@@ -42,16 +51,34 @@ const client = new Client({
   
 //Collection  
 client.commands = new Collection();
-client.cooldown = new Collection();
+client.cooldowns = new Collection();
 client.interactions = new Collection();
 client.aliases = new Collection();
 
   
   
  
-//Handlers 
-["Events","Commands", "Message"].forEach(handler => { 
-   require(`${cwd()}/Handlers/${handler}`)(client, PG, ascii); 
- }) 
+//Handlers
+["Events","Commands","Interactions"].forEach(handler => {
+   require(`${cwd()}/Handlers/${handler}`)(client, PG, ascii);
+});
+
+//Systems
+client.distube = new DisTube(
+  client,{
+    leaveOnStop: true,
+    emitNewSongOnly: false,
+    emitAddSongWhenCreatingQueue: false,
+    emitAddListWhenCreatingQueue: false,
+    plugins: [
+      new SpotifyPlugin({
+        emitEventsAfterFetching: true
+      }),
+      new YtDlpPlugin()
+    ],
+    youtubeDL: false
+  }
+);
+module.exports = client;
   
- client.login(token)
+client.login(token)

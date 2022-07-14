@@ -11,7 +11,7 @@ const {
 } = require(`${cwd()}/Structures/data.json`);  
 
 
-module.exports = async(client, PG, ascii) => {
+module.exports = async(client, PG, ascii, queue, song) => {
   
   const Table = new ascii("event files");
   Table.setHeading("name", "status");
@@ -20,16 +20,12 @@ module.exports = async(client, PG, ascii) => {
     async(file) => {
 
       const event = require(file);
-      let N = file.split("/");
-      
-      
-      if (!event.name || !Events.includes(event.name))   
-        return Table.addRow(N[6], "❌failed", "name is invalid or missing");
+      const N = file.split("/");
 
       Table.addRow(N[6], "🟢loaded");
 
       try {
-        
+
         if (event.once) {
 
           client.once(event.name, (...args) => event.execute(...args, client));

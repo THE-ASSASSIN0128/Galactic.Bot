@@ -8,6 +8,12 @@ const {
   image,
   colour
 } = require(`${cwd()}/Structures/data.json`);
+const {
+  onCoolDown2
+} = require(`${cwd()}/Functions/onCoolDown.js`);
+const {
+  version
+} = require(`${cwd()}/package.json`);
 
 
 
@@ -38,9 +44,11 @@ module.exports = {
             return;
           
         };
-        
+
+        //Checking the command Permissions
         if (command.permissions) {
-          
+
+          //Checking User permissions
           if (!interaction.member.permissions.has(command.permisssions)) {
             
             interaction.reply({
@@ -57,7 +65,8 @@ module.exports = {
               ]
             });
           }
-          
+
+          //Checking Bot's permissions
           if (!interaction.guild.me.permissions.has(command.permissions)) {
             interaction.reply({
               embeds: [
@@ -73,6 +82,25 @@ module.exports = {
           };
 
         };
+
+        //Checking command cooldowns
+        if (command.cooldown && onCoolDown2(interaction, command)) {
+          return interaction.reply({
+            embeds: [
+              new MessageEmbed()
+              .setTitle("⏱️ : ON COOL DOWN")
+              .setDescription(`The command **[${command.name}]** you are trying to use is on cooldown **[${command.cooldown}s]**. You can use the command after **[${onCoolDown2(interaction, command).toFixed(1)}]**`)
+              .setColor(colour.cooldown)
+              .setFooter({
+                text: `${client.user.username} | V•${version}`,
+                iconURL: `${client.user.avatarURL({
+                  dynamic: true,
+                  size: 4096
+                })}`
+              }).setTimestamp()
+            ]
+          })
+        }; 
       
         await command.execute(interaction, client);
         

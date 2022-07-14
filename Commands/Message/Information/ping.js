@@ -26,7 +26,7 @@ const {
      cooldown: 15,
      category: 'Info',
    description: '🏓 Show the bot\'s Latency to the Discord API.',
-     execute: async (client, message, args) => {
+     run: async (client, message, args) => {
        let days = Math.floor(client.uptime / 86400000)
        let hours = Math.floor(client.uptime / 3600000) % 24
        let minutes = Math.floor(client.uptime / 60000) % 60

@@ -1,6 +1,5 @@
 const { 
-   cwd, 
-   env 
+   cwd
 } = require("process"); 
 const {
   Perms
@@ -14,16 +13,13 @@ const {
   
   
 module.exports = async(client, PG, ascii) => {
-  const Table = new ascii("slash commands"); 
-   
-  const ArrayofCommands = [];
+  const Table = new ascii("message commands"); 
 
-  (await PG(`${cwd()}/Commands/Interaction/*/*.js`)).map(
+  (await PG(`${cwd()}/Commands/Message/*/*.js`)).map(
     async(file) => {
       
       const command = require(file);
       const I = file.split("/");
-      Table.setHeading("file", "status");
 
       if (!command.name)
         return Table.addRow(I[7], "🔴failed", "missing a name");
@@ -36,22 +32,19 @@ module.exports = async(client, PG, ascii) => {
         if (!Perms.includes(command.permissions))
         return Table.addRow(I[7], "🔴failed", "permission is missing or invalid");
 
-      Table.addRow(I[7], "🟢loaded");
-      client.interactions.set(command.name, command);
-      ArrayofCommands.push(command);
+      
+      client.commands.set(command.name, command);
+      
+      if (command.aliases)
+        command.aliases.forEach(
+          async(alias) =>
+            client.aliases.set(alias, command.name));
+  
+  Table.setHeading("file", "status");
+  Table.addRow(I[7], "🟢loaded");
 
     });
 
   console.log(Table.toString());
   
-   
-   
-  client.on("ready", () => {
-    try {
-      const guild = client.guilds.cache.get(guilds.main);
-      guild.commands.set(ArrayofCommands);
-    } catch (error) {
-      console.error(error);
-    };
-  });
 };

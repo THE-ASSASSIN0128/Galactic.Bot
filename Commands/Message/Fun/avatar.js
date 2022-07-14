@@ -15,7 +15,7 @@ module.exports = {
   category: "Fun",
   cooldown: 5,
   description: "Replies with user Avatar",
-  async execute(client, message, args) {
+  run: async(client, message, args) => {
 
     const info = new MessageEmbed()
       .setDescription("**Avatar. For URL click on the image.**")
