@@ -7,7 +7,8 @@ const {
   cwd
 } = require(`process`);
 const {
-  colour
+  colour,
+  channels
 } = require(`${cwd()}/Structures/data.json`);
 
 
@@ -38,13 +39,18 @@ module.exports = {
       })
       .setTimestamp()
     
-    
-    const Bot = new WebhookClient({
-      url: "https://discord.com/api/webhooks/882861049194373150/9AK7wcYHwn5OLMSbB2mmSmTNW8GyAyQF9B95ZGBSjV2C3x8TNYgDTq673Km4txI7qwNj"
-    })
+    try {
 
-    Bot.send({
-      embeds: [Log]
-    });
+      const channel = await newMessage.guild.channels.fetch(channels.useLogs);
+      
+      channel.send({
+        embeds: [Log]
+      });
+
+    } catch (error) {
+
+      console.error(error);
+
+    };
   },
 };

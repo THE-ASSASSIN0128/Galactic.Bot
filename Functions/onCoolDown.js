@@ -74,7 +74,7 @@ function onCoolDown2(interaction, command) {
 
   if (!client.cooldowns.has(command.name)) {
     
-    client.cooldowns.set(command.name, new Collection());
+    client.cooldowns.set(command.name, command.cooldown)
     
   };
 

@@ -100,13 +100,14 @@ module.exports = {
 function switchTo(val) {
   var status = " ";
   switch(val) {
-    case 0: status = `[\`🔴\`] Disconnected`
+    case 0: status = `\`🔴\`]
+Disconnected`
     break;
-    case 1: status = `[\`🟢\`] Connected`
+    case 1: status = `\`🟢\` Connected`
     break;
-    case 2: status = `[\`🟡\`] Connecting`
+    case 2: status = `\`🟡\` Connecting`
     break;
-    case 3: status = `[\`🟣\`] Disconnecting`
+    case 3: status = `\`🟣\` Disconnecting`
     break;
   };
   return status;

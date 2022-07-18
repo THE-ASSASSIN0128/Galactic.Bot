@@ -39,6 +39,8 @@ module.exports = async(client, PG, ascii) => {
         command.aliases.forEach(
           async(alias) =>
             client.aliases.set(alias, command.name));
+      if (command.cooldown)
+        client.cooldowns.set(command.name, command.cooldown);
   
   Table.setHeading("file", "status");
   Table.addRow(I[7], "🟢loaded");

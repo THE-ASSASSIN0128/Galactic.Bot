@@ -7,6 +7,7 @@ const {
   MessageSelectMenu,
   MessageButton
 } = require("discord.js");
+const Discord = require("discord.js");
 const {
   connection
 } = require("mongoose");
@@ -28,9 +29,10 @@ require(`${cwd()}/Events/Client/ready.js`);
 
 
 module.exports = {
-  name: "stats",
+  name: "status",
   category: "Information",
   description: "Replies with the bots currnet status.",
+  aliases: ["stats"],
   run: async(client, message, args) => {
     
     let uptime = Math.floor (client.uptime / 1000)
@@ -67,7 +69,7 @@ module.exports = {
       })}`)
       .addField("BOT INFO", `**❕ Status** :  [\`🟢\`] Online\n**🏓 Ping** : ${client.ws.ping}ms\n**⏱️ Uptime** :\n\`\`\`\n${days}Days, ${hours}Hours, ${minutes}Minutes, ${seconds}Seconds\n\`\`\``)
       .addField(`DataBase INFO`, `**🪧 Name :** MongoDB\n**❕ Status :** ${switchTo(connection.readyState)}`)
-      .addField("HOST & LIBRARY INFO", '**🪧 Name :** [repl.it](https://repl.it)\n📚 **Library :** discord.js | V•13.8.0')
+      .addField("HOST & LIBRARY INFO", `**🪧 Name :** [repl.it](https://repl.it)\n📚 **Library :** discord.js | V•${Discord.version}`)
       .addField("**GitHub Repository**",`**🪧 Name :** Galactic.Bot\n**🔗 Link :** [THE-ASSASSIN0128/Galactic.Bot](https://github.com/THE-ASSASSIN0128/Galactic.Bot)\n`)
 
     const row = new MessageActionRow()
@@ -90,7 +92,7 @@ module.exports = {
 			);
     
     await message.channel.send({
-      embeds: [ Status ]
+      embeds: [Status]
     });
   }
 };
